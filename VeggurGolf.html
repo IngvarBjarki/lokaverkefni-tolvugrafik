@@ -16,11 +16,12 @@ varying vec2 fTexCoord;
 uniform mat4 projection;
 uniform mat4 modelview;
 
-void main() 
+
+void main()
 {
     fTexCoord = vTexCoord;
     gl_Position = projection * modelview * vPosition;
-} 
+}
 </script>
 
 <script id="fragment-shader" type="x-shader/x-fragment">
