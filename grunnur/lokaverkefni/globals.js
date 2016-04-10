@@ -5,7 +5,7 @@ var BLUE = vec4(0.0, 0.0, 1.0, 1.0);
 var RED = vec4(1.0, 0.0, 0.0, 1.0);
 var GREEN =vec4(0.0, 1.0, 0.0, 1.0);
 var BLACK = vec4(0, 0, 0, 1.0);
-
+var DarkGREEN = vec4(0.1, 0.5, 0.1, 1.0);
 var numGroundVertices  = 6;
 
 
