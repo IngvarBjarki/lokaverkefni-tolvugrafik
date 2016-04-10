@@ -26,7 +26,8 @@ frog.prototype.render = function(mv){
     //var mv=vec4;
     mv = mult(mv, translate(this.frogXPos, this.frogYPos, this.frogWidth));
     // ef vid viljum rotadea ta kemur tad her
-    mv = mult(mv, scalem(this.frogSize+3, this.frogSize, this.frogSize));
+    mv = mult(mv, rotateZ(-this.frogAngle));
+    mv = mult(mv, scalem(this.frogSize, this.frogSize +3, this.frogSize));
 
     gl.bindBuffer(gl.ARRAY_BUFFER, cubeBuffer);
     gl.vertexAttribPointer(vPosition, 3, gl.FLOAT, false, 0, 0);
