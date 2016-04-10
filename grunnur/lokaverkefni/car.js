@@ -9,16 +9,15 @@ function car(color, yPos, xPos, speed){
     this.carStepSize = 1.5;
     this.carWidth = this.carSize ;//+3; // gedi plus 3 ingvar
     this.carLength = this.carSize;// +10; // gerdi plus 10 ingvar
-    this.carColor = color ; //BLUE
+    this.carColor = color ;
     this.carSpeed = speed;
 
 }
 car.prototype.update = function(){
 
-// utbum switch settningu fyrir hvada orvatakkar eru valdir
-
+// ef bilinn er komin x langt utfyrir
 if(this.carYPos > 150){
-    this.carYPos = -40 + Math.random()*10;
+    this.carYPos = -100 + Math.random()*10;
 }
 else{
     this.carYPos += this.carSpeed;

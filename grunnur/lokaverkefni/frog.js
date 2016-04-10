@@ -15,9 +15,6 @@ function frog(angle){
 
 frog.prototype.update = function(angle){
 this.frogAngle = angle;
-// utbum switch settningu fyrir hvada orvatakkar eru valdir
-//this.frogXpos += this.frogDirectionX * this.frogStepSize ;
-//this.frogYpos += this.frogDirectionY * this.frogStepSize ;
 this.frogXPos += 2*this.frogDirectionX;
 this.frogYPos += 2*this.frogDirectionY;
 };
