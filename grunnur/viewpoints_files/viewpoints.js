@@ -4,9 +4,9 @@ var gl;
 var BLUE = vec4(0.0, 0.0, 1.0, 1.0);
 var RED = vec4(1.0, 0.0, 0.0, 1.0);
 var GREEN =vec4(0.0, 1.0, 0.0, 1.0);
-var GRAY = vec4(0.4, 0.4, 0.4, 1.0);
+var BLACK = vec4(0, 0, 0, 1.0);
 
-var numCubeVertices  = 6;
+var numGroundVertices  = 6;
 
 
 
@@ -25,11 +25,12 @@ var lookHeight=0.0;
 var lookX=0.0;
 var lookY=0.0;
 
+var grSize=1;
 // the 6 vertices of the ground
 var groundVertices = [
     // bottom side:
-    vec3(  -10, -10,  -10 ), vec3( 10, -10,  -10 ), vec3( 10, 10, -10 ),
-    vec3( 10, 10, -10 ), vec3(  -10, 10, -10 ), vec3(  -10, -10,  -10 ),
+    vec3(  -grSize, -grSize,  -grSize ), vec3( grSize, -grSize,  -grSize ), vec3( grSize, grSize, -grSize ),
+    vec3( grSize, grSize, -grSize ), vec3(  -grSize, grSize, -grSize ), vec3(  -grSize, -grSize,  -grSize )
 
 ];
 
@@ -99,6 +100,7 @@ window.onload = function init()
     proj = perspective( 50.0, 1.0, 1.0, 500.0 );
     gl.uniformMatrix4fv(pLoc, false, flatten(proj));
 
+<<<<<<< HEAD
     render();
 };
 
@@ -137,16 +139,38 @@ function drawGround( mv ,size) {
 
 
 
+    window.addEventListener("keydown", function(e){
+        switch( e.keyCode ) {
+            case 65: // a
+                lookX-=2.0;
+                break;
+            case 83: // s
+                lookY+=2.0;
+                break;
+            case 87: // w
+                lookY-=2.0;
+                break;
+            case 68: // d
+                lookX+=2.0;
+                break;
+
+        }
+    } );
+
+    render();
+}
+
+
 function render()
 {
     gl.clear( gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
     var mv = mat4();
-    mv = lookAt( vec3(250.0+lookY, 0.0+lookX, -10), vec3(-10.0+lookY, 0+lookX, 0.0), vec3(0.0, 0.0, 1.0) );
-    drawGround( mv,10);
-    // Distant and stationary viewpoint
-    mv=mult(mv,scalem(100,100,0));
 
+    mv = lookAt( vec3(350+lookY, 0.0+lookX, 1), vec3(-50+lookY, lookX, -5), vec3(0.0, 0.0, 1.0) );
+    drawGround( mv,100);
+    drawStreet(mv,30);
+    drawRiver(mv,30);
 
 
     requestAnimFrame( render );
