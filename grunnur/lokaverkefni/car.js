@@ -34,8 +34,8 @@ car.prototype.render = function(mv){
       var mv1 = mv;
     // lower body of the car
      // fra joni
-    mv = mult(mv, translate(this.carXPos, this.carYPos, 0.5+this.carWidth));
-    mv = mult(mv, scalem(3+this.carSize,10+this.carSize,2+this.carSize));
+    mv = mult(mv, translate(this.carXPos, this.carYPos, 3+this.carWidth));
+    mv = mult(mv, scalem(8+this.carSize,15+this.carSize,5+this.carSize));
     //mv = mult(mv, rotateZ(this.carAngle));
 
 
@@ -49,8 +49,8 @@ car.prototype.render = function(mv){
     gl.drawArrays(gl.TRIANGLES, 0, 36);
 //console.log("hér er carXpos" + carXpos);
     // upper part of the car
-    mv1 = mult(mv1, translate(-0.2+this.carXPos, 0+this.carYPos, 1.5+this.carWidth));
-    mv1= mult(mv1, scalem(4+this.carSize, 3+this.carSize, 2+this.carSize));
+    mv1 = mult(mv1, translate(-0.2+this.carXPos, -1+this.carYPos, 7+this.carWidth));
+    mv1= mult(mv1, scalem(8+this.carSize, 6+this.carSize, 4+this.carSize));
      //mv1 = mult(mv1, rotateZ(this.carAngle));
     //mv1 = mult(mv1, rotateZ(-this.carAngle));
 
