@@ -20,6 +20,7 @@ var proj;
 
 var groundBuffer;
 var vPosition;
+var frogBuffer;
 
 var lookHeight=0.0;
 var lookX=0.0;
@@ -82,11 +83,11 @@ window.onload = function init()
     gl.bufferData( gl.ARRAY_BUFFER, flatten(groundVertices), gl.STATIC_DRAW );
 
     //Buffer fyrir froskinn
-    frogBuffer = gl.createBuffer();
+  /*  frogBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, frogBuffer);
     gl.bufferData(gl.ARRAY_BUFFER, flatten(numCubeVertice));
 
-
+*/
     vPosition = gl.getAttribLocation( program, "vPosition" );
     gl.vertexAttribPointer( vPosition, 3, gl.FLOAT, false, 0, 0 );
     gl.enableVertexAttribArray( vPosition );
@@ -100,7 +101,7 @@ window.onload = function init()
     proj = perspective( 50.0, 1.0, 1.0, 500.0 );
     gl.uniformMatrix4fv(pLoc, false, flatten(proj));
 
-<<<<<<< HEAD
+
     render();
 };
 
