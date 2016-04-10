@@ -32,7 +32,6 @@ var groundVertices = [
     // bottom side:
     vec3(  -grSize, -grSize,  -grSize ), vec3( grSize, -grSize,  -grSize ), vec3( grSize, grSize, -grSize ),
     vec3( grSize, grSize, -grSize ), vec3(  -grSize, grSize, -grSize ), vec3(  -grSize, -grSize,  -grSize )
-
 ];
 
 // fyrir kassan a.k.a froskinn
@@ -101,11 +100,28 @@ window.onload = function init()
     proj = perspective( 50.0, 1.0, 1.0, 500.0 );
     gl.uniformMatrix4fv(pLoc, false, flatten(proj));
 
+      window.addEventListener("keydown", function(e){
+        switch( e.keyCode ) {
+            case 65: // a
+                lookX-=2.0;
+                break;
+            case 83: // s
+                lookY+=2.0;
+                break;
+            case 87: // w
+                lookY-=2.0;
+                break;
+            case 68: // d
+                lookX+=2.0;
+                break;
+
+        }});
+
 
     render();
 };
 
-
+/*
 // draw a house in location (x, y) of size size
 function ground( x, y, size, mv ) {
 
@@ -160,7 +176,7 @@ function drawGround( mv ,size) {
 
     render();
 }
-
+*/
 
 function render()
 {
