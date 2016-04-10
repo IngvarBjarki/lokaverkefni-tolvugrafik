@@ -69,10 +69,13 @@ function render()
 
     var mv = mat4();
 
-    mv = lookAt( vec3(350+lookY, 0.0+lookX, 1), vec3(-50+lookY, lookX, -5), vec3(0.0, 0.0, 1.0) );
+    //mv = lookAt( vec3(350+lookY, 0.0+lookX, 1), vec3(-50+lookY, lookX, -5), vec3(0.0, 0.0, 1.0) );
+    mv = lookAt( vec3(350+lookY, 0.0+lookX, 1), vec3(frog.frogXPos, frog.frogYPos,1 ), vec3(0.0, 0.0, 1.0) );
+
     drawGround( mv,100);
     drawStreet(mv,30);
     drawRiver(mv,30);
+
 
     frog.render(mv);
 
