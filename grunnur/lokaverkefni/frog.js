@@ -26,7 +26,7 @@ frog.prototype.render = function(){
     // ef vid viljum rotadea ta kemur tad her
     mv = mult(mv, scalem(this.frogSize, this.frogSize, this.frogSize));
 
-    gl.bindBuffer(gl.ARRAY_BUFFER, frogBuffer);
+    gl.bindBuffer(gl.ARRAY_BUFFER, cubeBuffer);
     gl.vertexAttribPointer(vPosition, 3, gl.FLOAT, false, 0, 0);
     gl.uniform4fv(colorLoc, sGREEN);
     gl.uniformMatrix4fv(myLoc, false, flatten(mv));
