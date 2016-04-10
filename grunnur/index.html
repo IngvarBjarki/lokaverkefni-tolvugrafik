@@ -6,16 +6,16 @@ attribute  vec4 vPosition;
 uniform mat4 projection;
 uniform mat4 modelview;
 
-void main() 
+void main()
 {
     gl_Position = projection * modelview * vPosition;
-} 
+}
 </script>
 
 <script id="fragment-shader" type="x-shader/x-fragment">
 
 precision mediump float;
-   
+
 uniform vec4 fColor;
 
 void
@@ -25,17 +25,18 @@ main()
 }
 </script>
 
-<script type="text/javascript" src="./viewpoints_files/webgl-utils.js"></script><style type="text/css"></style>
-<script type="text/javascript" src="./viewpoints_files/initShaders.js"></script>
-<script type="text/javascript" src="./viewpoints_files/MV.js"></script>
-<script type="text/javascript" src="./viewpoints_files/draw.js"></script>
-<script type="text/javascript" src="./viewpoints_files/viewpoints.js"></script>
+<script type="text/javascript" src="./lokaverkefni/webgl-utils.js"></script><style type="text/css"></style>
+<script type="text/javascript" src="./lokaverkefni/initShaders.js"></script>
+<script type="text/javascript" src="./lokaverkefni/MV.js"></script>
+<script type="text/javascript" src="./lokaverkefni/draw.js"></script>
+<script type="text/javascript" src="./lokaverkefni/globals.js"></script>
+<script type="text/javascript" src="./lokaverkefni/main.js"></script>
 
 <script type="text/javascript" src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"></script></head><body>
 <canvas id="gl-canvas" width="700" height="700">
 Oops ... your browser doesn't support the HTML5 canvas element
 </canvas>
-   
+
 <br>
 
 
