@@ -14,12 +14,12 @@ function frog(angle){
 
 
 frog.prototype.update = function(angle){
-this.frogAngle = angle;
-// utbum switch settningu fyrir hvada orvatakkar eru valdir
-//this.frogXpos += this.frogDirectionX * this.frogStepSize ;
-//this.frogYpos += this.frogDirectionY * this.frogStepSize ;
-this.frogXPos += 2*this.frogDirectionX;
-this.frogYPos += 2*this.frogDirectionY;
+    this.frogAngle = angle;
+    // utbum switch settningu fyrir hvada orvatakkar eru valdir
+    //this.frogXpos += this.frogDirectionX * this.frogStepSize ;
+    //this.frogYpos += this.frogDirectionY * this.frogStepSize ;
+    this.frogXPos += 2*this.frogDirectionX;
+    this.frogYPos += 2*this.frogDirectionY;
 };
 
 frog.prototype.render = function(mv){
@@ -37,3 +37,16 @@ frog.prototype.render = function(mv){
     gl.drawArrays(gl.TRIANGLES, 0, 36);
 
 };
+
+frog.prototype.collisionCheck = function(xPos,yPos){
+    fx1=this.frogXPos-this.length/2;
+    fx2=this.frogXPos+this.length/2;
+    fy1=this.frogYPos-this.width/2;
+    fy2=this.frogYPos+this.width/2;
+
+    if (fx1<xPos && fy1<yPos || fx2>xPos && fy2>yPos){
+        
+    }
+
+
+}
