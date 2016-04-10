@@ -35,13 +35,16 @@ window.onload = function init()
     ];
 
     //utbum fjoldabila
-    var numCars = 5; // maeti breyta yfir i global seinna
+    var numCars = 10; // maeti breyta yfir i global seinna
     colors = [BLUE, RED, CYAN, YELLOW, MAGNETA, BLACK];
 
     for (var i = 0; i<numCars; i++){
         color = vec4(Math.random(), Math.random(), Math.random(), 1);
         whatColor = Math.round((Math.random()*(colors.length-1)));
-        cars.push(new car(colors[whatColor], 20*i));
+        if(i > 4){
+            cars.push(new car(colors[whatColor], 20*i - 100, 0, 2));
+        }
+        cars.push(new car(colors[whatColor], 20*i - 100, 20, 0.5));
 }
     //Buffer fyrir froskinn
     cubeBuffer = gl.createBuffer();
@@ -105,7 +108,10 @@ function render()
     frog.render(mv);
     for(var j = 0; j<cars.length; j++){
         cars[j].render(mv);
+        cars[j].update();
+        console.log(cars[j].carYPos);
     }
+
     //car.render(mv);
 
     drawStreet(mv,20,500);
