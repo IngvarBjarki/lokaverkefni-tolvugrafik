@@ -69,25 +69,32 @@ window.onload = function init()
         switch( e.keyCode ) {
 
             case (65 || 37): // a eða left arrow
-                if (frog.frogYPos){};
-                frog.frogYPos-=frog.frogSize;
-                frog.frogAngle = 180;
-                console.log(frog.frogYPos);
+                if (frog.frogYPos>-40){
+                    frog.frogYPos-=frog.frogSize;
+                    frog.frogAngle = 180;
+                    console.log(frog.frogYPos);
+                }
                 break;
             case (83 || 40): // s eða back arrow
-                frog.frogXPos+=2*frog.frogSize;
-                frog.frogAngle = 270;
-                console.log(frog.frogXPos);
+                if (frog.frogXPos<90){
+                    frog.frogXPos+=2*frog.frogSize;
+                    frog.frogAngle = 270;
+                    console.log(frog.frogXPos);
+                }    
                 break;
             case (87 || 38 ) : // w eða upp arrow
-                frog.frogXPos-=2*frog.frogSize;
-                frog.frogAngle = 90;
-                console.log(frog.frogXPos);
+                if (frog.frogXPos>-70){
+                    frog.frogXPos-=2*frog.frogSize;
+                    frog.frogAngle = 90;
+                    console.log(frog.frogXPos);
+                }
                 break;
             case (68 || 39): // d eða right arrow
-                frog.frogYPos+=frog.frogSize;
-                frog.frogAngle = 0;
-                console.log(frog.frogYPos);
+                if (frog.frogYPos<120){
+                    frog.frogYPos+=frog.frogSize;
+                    frog.frogAngle = 0;
+                    console.log(frog.frogYPos);
+                }
                 break;
 
         }});
@@ -109,7 +116,6 @@ function render()
     for(var j = 0; j<cars.length; j++){
         cars[j].render(mv);
         cars[j].update();
-        console.log(cars[j].carYPos);
     }
 
     //car.render(mv);
