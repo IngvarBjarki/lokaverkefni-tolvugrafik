@@ -22,9 +22,26 @@ window.onload = function init()
     gl.bufferData( gl.ARRAY_BUFFER, flatten(groundVertices), gl.STATIC_DRAW );
 
     frog = new frog();
+ // utbum bilana
+    //colors = [BLUE, RED, YELLOW, CYAN, MAGNETA, GREEN];
+    var carColors = [
+    vec4( 0.0, 0.0, 0.0, 1.0 ),  // black
+    vec4( 1.0, 0.0, 0.0, 1.0 ),  // red
+    vec4( 1.0, 1.0, 0.0, 1.0 ),  // yellow
+    vec4( 0.0, 1.0, 0.0, 1.0 ),  // green
+    vec4( 0.0, 0.0, 1.0, 1.0 ),  // blue
+    vec4( 1.0, 0.0, 1.0, 1.0 ),  // magenta
+    vec4( 0.0, 1.0, 1.0, 1.0 ),  // cyan
+    ];
 
-    car = new car();
-
+    //utbum fjoldabila
+    var numCars = 5; // maeti breyta yfir i global seinna
+    colors = [BLUE, RED, CYAN, YELLOW, MAGNETA, BLACK];
+    for (var i = 0; i<numCars; i++){
+        color = vec4(Math.random(), Math.random(), Math.random(), 1);
+        whatColor = Math.round((Math.random()*(colors.length-1)));
+        cars.push(new car(colors[whatColor], i*2));
+}
     //Buffer fyrir froskinn
     cubeBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, cubeBuffer);
@@ -80,7 +97,10 @@ function render()
     //mv = lookAt( vec3(frog.frogXPos+30,frog.frogYPos, 10 ), vec3(frog.frogXPos,frog.frogYPos,5.0 ), vec3(0.0, 0.0, 1.0) );
     mv = lookAt( vec3(frog.frogXPos+60,frog.frogYPos, 40 ), vec3(frog.frogXPos-60,frog.frogYPos,5.0 ), vec3(0.0, 0.0, 1.0) );
     frog.render(mv);
-    car.render(mv);
+    for(var j = 0; j<cars.length; j++){
+        cars[j].render(mv);
+    }
+    //car.render(mv);
 
     drawStreet(mv,20);
     drawRiver(mv,20);
