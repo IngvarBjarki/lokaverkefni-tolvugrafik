@@ -17,7 +17,7 @@ function drawStreet( mv ,size) {
     gl.uniform4fv( colorLoc, BLACK );
     
     mv = mult( mv, translate(40, 0, 0 ) );
-    mv = mult( mv, scalem( size, 100, -1) );
+    mv = mult( mv, scalem( size, 100, -0.1) );
 
     gl.bindBuffer( gl.ARRAY_BUFFER, groundBuffer );
     gl.vertexAttribPointer( vPosition, 3, gl.FLOAT, false, 0, 0 );
@@ -31,7 +31,7 @@ function drawRiver( mv ,size) {
     gl.uniform4fv( colorLoc, BLUE );
     
     mv = mult( mv, translate(-40, 0, 0 ) );
-    mv = mult( mv, scalem( size, 100, -1) );
+    mv = mult( mv, scalem( size, 100, -0.1) );
 
     gl.bindBuffer( gl.ARRAY_BUFFER, groundBuffer );
     gl.vertexAttribPointer( vPosition, 3, gl.FLOAT, false, 0, 0 );
