@@ -1,14 +1,14 @@
 function frog(angle){
 
-    this.frogXPos = 0.0;
-    this.frogYPos = 0.0;
+    this.frogXPos = 92.5;
+    this.frogYPos = 32.5;
     this.frogSize = 5.0;
     this.frogAngle = angle || 90;
     this.frogDirectionX = Math.cos(radians(this.frogAngle)); // til þess hann fari ekki i x at þegar hann a ad fara i y att
     this.frogDirectionY = Math.sin(radians(this.frogAngle)); // -||-
     this.frogStepSize = 1.5;
     this.frogWidth = this.frogSize;
-    this.frogLenegth = this.frogSize;
+    this.frogLength = this.frogSize;
 
 }
 
