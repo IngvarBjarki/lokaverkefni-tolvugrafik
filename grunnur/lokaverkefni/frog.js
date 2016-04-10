@@ -8,7 +8,7 @@ function frog(){
     this.frogDirectionY = Math.sin(radians(this.frogAngle)); // -||-
     this.frogStepSize = 1.5;
     this.frogWidth = this.frogSize;
-    this.frogLenegth = this.frogSize;
+    this.frogLength = this.frogSize;
 
 }
 

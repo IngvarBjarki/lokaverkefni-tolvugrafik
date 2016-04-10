@@ -416,7 +416,6 @@ function scalem( x, y, z )
 //
 //  ModelView Matrix Generators
 //
-
 function lookAt( eye, at, up )
 {
     if ( !Array.isArray(eye) || eye.length != 3) {

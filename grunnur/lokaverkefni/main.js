@@ -45,7 +45,7 @@ window.onload = function init()
       window.addEventListener("keydown", function(e){
         switch( e.keyCode ) {
             case 65: // a
-                frog.frogYPos-=10;
+                frog.frogYPos+=10;
                 break;
             case 83: // s
                 frog.frogXPos+=10;
@@ -54,7 +54,7 @@ window.onload = function init()
                 frog.frogXPos-=10;
                 break;
             case 68: // d
-                frog.frogYPos+=10;
+                frog.frogYPos-=10;
                 break;
 
         }});
@@ -87,14 +87,14 @@ function render()
     var mv = mat4();
 
     //mv = lookAt( vec3(0+lookY, 0.0+lookX, 5), vec3(-50+lookY, lookX, -5), vec3(0.0, 0.0, 1.0) );
-    mv = lookAt( vec3(10+frog.frogYPos, frog.frogXPos, 100 ), vec3(1+frog.frogXPos,1+frog.frogYPos,1 ), vec3(0.0, 0.0, 1.0) );
+    mv = lookAt( vec3(frog.frogXPos+30,-frog.frogYPos, 10 ), vec3(frog.frogXPos,0,5.0 ), vec3(0.0, 0.0, 1.0) );
+    frog.render(mv);
 
-    drawGround( mv,100);
     drawStreet(mv,30);
     drawRiver(mv,30);
+    drawGround( mv,100);
 
 
-    frog.render(mv);
 
 
     requestAnimFrame( render );
