@@ -60,6 +60,23 @@ window.onload = function init()
         }});
 
 
+ window.addEventListener("keydown", function(e){
+        switch( e.keyCode ) {
+            case 37: // left arrow
+                frog.frogAngle = 180;
+                break;
+            case 38: // upp arrow
+                frog.frogAngle = 90;
+                break;
+            case 39: // right arrow
+                frog.frogAngle = 0;
+                break;
+            case 40: // down arrow
+                frog.frogAngle = 270;
+                break;
+
+        }});
+
     render();
 };
 
