@@ -37,10 +37,11 @@ window.onload = function init()
     //utbum fjoldabila
     var numCars = 5; // maeti breyta yfir i global seinna
     colors = [BLUE, RED, CYAN, YELLOW, MAGNETA, BLACK];
+
     for (var i = 0; i<numCars; i++){
         color = vec4(Math.random(), Math.random(), Math.random(), 1);
         whatColor = Math.round((Math.random()*(colors.length-1)));
-        cars.push(new car(colors[whatColor], i*2));
+        cars.push(new car(colors[whatColor], 20*i));
 }
     //Buffer fyrir froskinn
     cubeBuffer = gl.createBuffer();
