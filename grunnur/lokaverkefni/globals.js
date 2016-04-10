@@ -28,6 +28,8 @@ var lookY=0.0;
 
 var mvLoc;
 
+var cars = [];
+
 
 var grSize=1;
 // the 6 vertices of the ground

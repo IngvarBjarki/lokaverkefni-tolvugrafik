@@ -22,6 +22,7 @@ window.onload = function init()
     gl.bufferData( gl.ARRAY_BUFFER, flatten(groundVertices), gl.STATIC_DRAW );
 
     frog = new frog();
+
     car = new car();
 
     //Buffer fyrir froskinn
@@ -65,34 +66,6 @@ window.onload = function init()
 
         }});
 
-/*
- window.addEventListener("keydown", function(e){
-        switch( e.keyCode ) {
-            case 37: // left arrow
-                frog.frogAngle = 200;
-                frog.update(0);
-                console.log(frog.frogXPos);
-                console.log(frog.frogAngle);
-                console.log("her er frog dir" + frog.frogDirectionX);
-                console.log("her er frog dirY" + frog.frogDirectionY);
-                break;
-            case 38: // upp arrow
-                frog.frogAngle = 180;
-                 frog.update();
-
-                break;
-            case 39: // right arrow
-                frog.frogAngle = 90;
-                 frog.update();
-                break;
-            case 40: // down arrow
-                frog.frogAngle = 270;
-                frog.update();
-                break;
-
-        }});
-
-*/
     render();
 };
 

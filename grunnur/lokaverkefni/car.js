@@ -9,6 +9,7 @@ function car(){
     this.carStepSize = 1.5;
     this.carWidth = this.carSize;
     this.carLength = this.carSize;
+    this.carColor = BLUE;
 
 }
 car.prototype.update = function(){
@@ -21,7 +22,7 @@ car.prototype.update = function(){
 car.prototype.render = function(mv){
 
     // set color to blue
-    gl.uniform4fv(colorLoc, BLUE);
+    gl.uniform4fv(colorLoc, this.carColor);
 
     gl.bindBuffer(gl.ARRAY_BUFFER, cubeBuffer);
     gl.vertexAttribPointer(vPosition, 3, gl.FLOAT, false, 0, 0);
@@ -36,7 +37,7 @@ car.prototype.render = function(mv){
 
     gl.uniformMatrix4fv(mvLoc, false, flatten(mv));
     gl.drawArrays(gl.TRIANGLES, 0, 36);
-   
+
     // upper part of the car
 
     mv1= mult(mv1, scalem(4+this.carSize, 3+this.carSize, 2+this.carSize));
