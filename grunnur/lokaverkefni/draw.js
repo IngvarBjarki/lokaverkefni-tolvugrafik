@@ -12,12 +12,12 @@ function drawGround( mv ,size) {
     gl.drawArrays( gl.TRIANGLES, 0, numGroundVertices );
 }
 
-function drawStreet( mv ,size) {
+function drawStreet( mv ,width,size) {
 
     gl.uniform4fv( colorLoc, BLACK );
     
     mv = mult( mv, translate(40, 0, 0 ) );
-    mv = mult( mv, scalem( size, 80, -0.01) );
+    mv = mult( mv, scalem( width, size, -0.01) );
 
     gl.bindBuffer( gl.ARRAY_BUFFER, groundBuffer );
     gl.vertexAttribPointer( vPosition, 3, gl.FLOAT, false, 0, 0 );
@@ -26,12 +26,12 @@ function drawStreet( mv ,size) {
     gl.drawArrays( gl.TRIANGLES, 0, numGroundVertices );
 
 }
-function drawRiver( mv ,size) {
+function drawRiver( mv ,width,size) {
 
     gl.uniform4fv( colorLoc, BLUE );
     
     mv = mult( mv, translate(-40, 0, 0 ) );
-    mv = mult( mv, scalem( size, 80, -0.01) );
+    mv = mult( mv, scalem( width, size, -0.01) );
 
     gl.bindBuffer( gl.ARRAY_BUFFER, groundBuffer );
     gl.vertexAttribPointer( vPosition, 3, gl.FLOAT, false, 0, 0 );

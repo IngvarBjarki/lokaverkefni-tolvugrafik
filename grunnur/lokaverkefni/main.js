@@ -69,20 +69,32 @@ window.onload = function init()
         switch( e.keyCode ) {
 
             case (65 || 37): // a eða left arrow
-                frog.frogYPos-=frog.frogSize;
-                frog.frogAngle = 180;
+                if (frog.frogYPos>-40){
+                    frog.frogYPos-=frog.frogSize;
+                    frog.frogAngle = 180;
+                    console.log(frog.frogYPos);
+                }
                 break;
             case (83 || 40): // s eða back arrow
-                frog.frogXPos+=2*frog.frogSize;
-                frog.frogAngle = 270;
+                if (frog.frogXPos<90){
+                    frog.frogXPos+=2*frog.frogSize;
+                    frog.frogAngle = 270;
+                    console.log(frog.frogXPos);
+                }    
                 break;
             case (87 || 38 ) : // w eða upp arrow
-                frog.frogXPos-=2*frog.frogSize;
-                frog.frogAngle = 90;
+                if (frog.frogXPos>-70){
+                    frog.frogXPos-=2*frog.frogSize;
+                    frog.frogAngle = 90;
+                    console.log(frog.frogXPos);
+                }
                 break;
             case (68 || 39): // d eða right arrow
-                frog.frogYPos+=frog.frogSize;
-                frog.frogAngle = 0;
+                if (frog.frogYPos<120){
+                    frog.frogYPos+=frog.frogSize;
+                    frog.frogAngle = 0;
+                    console.log(frog.frogYPos);
+                }
                 break;
 
         }});
@@ -104,17 +116,13 @@ function render()
     for(var j = 0; j<cars.length; j++){
         cars[j].render(mv);
         cars[j].update();
-        console.log(cars[j].carYPos);
     }
 
     //car.render(mv);
 
-    drawStreet(mv,20);
-    drawRiver(mv,20);
-    drawGround( mv,80);
-
-
-
+    drawStreet(mv,20,500);
+    drawRiver(mv,20,500);
+    drawGround( mv,500);
 
     requestAnimFrame( render );
 }
