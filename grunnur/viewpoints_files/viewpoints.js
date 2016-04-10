@@ -35,7 +35,7 @@ var groundVertices = [
 ];
 
 // fyrir kassan a.k.a froskinn
-var numCubeVertice = [
+var cubeVertices = [
     // front side:
     vec3( -0.5,  0.5,  0.5 ), vec3( -0.5, -0.5,  0.5 ), vec3(  0.5, -0.5,  0.5 ),
     vec3(  0.5, -0.5,  0.5 ), vec3(  0.5,  0.5,  0.5 ), vec3( -0.5,  0.5,  0.5 ),
@@ -84,7 +84,7 @@ window.onload = function init()
     //Buffer fyrir froskinn
   /*  frogBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, frogBuffer);
-    gl.bufferData(gl.ARRAY_BUFFER, flatten(numCubeVertice));
+    gl.bufferData(gl.ARRAY_BUFFER, flatten(cubeVertice));
 
 */
     vPosition = gl.getAttribLocation( program, "vPosition" );
@@ -120,63 +120,6 @@ window.onload = function init()
 
     render();
 };
-
-/*
-// draw a house in location (x, y) of size size
-function ground( x, y, size, mv ) {
-
-    gl.uniform4fv( colorLoc, GREEN );
-
-    mv = mult( mv, translate( x, y, size/2 ) );
-    mv = mult( mv, scalem( size, size, size ) );
-
-    gl.bindBuffer( gl.ARRAY_BUFFER, groundBuffer );
-    gl.vertexAttribPointer( vPosition, 3, gl.FLOAT, false, 0, 0 );
-
-    gl.uniformMatrix4fv(mvLoc, false, flatten(mv));
-    gl.drawArrays( gl.TRIANGLES, 0, numCubeVertices );
-}
-
-
-// draw the ground
-function drawGround( mv ,size) {
-
-    gl.uniform4fv( colorLoc, GREEN );
-
-    mv = mult( mv, translate( -100, 0, size/2 ) );
-    mv = mult( mv, scalem( size, size, size ) );
-
-    gl.bindBuffer( gl.ARRAY_BUFFER, groundBuffer );
-    gl.vertexAttribPointer( vPosition, 3, gl.FLOAT, false, 0, 0 );
-
-    gl.uniformMatrix4fv(mvLoc, false, flatten(mv));
-    gl.drawArrays( gl.TRIANGLES, 0, numCubeVertices );
-
-}
-
-
-
-    window.addEventListener("keydown", function(e){
-        switch( e.keyCode ) {
-            case 65: // a
-                lookX-=2.0;
-                break;
-            case 83: // s
-                lookY+=2.0;
-                break;
-            case 87: // w
-                lookY-=2.0;
-                break;
-            case 68: // d
-                lookX+=2.0;
-                break;
-
-        }
-    } );
-
-    render();
-}
-*/
 
 function render()
 {
