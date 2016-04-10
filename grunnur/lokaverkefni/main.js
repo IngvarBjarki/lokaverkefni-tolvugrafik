@@ -45,16 +45,16 @@ window.onload = function init()
       window.addEventListener("keydown", function(e){
         switch( e.keyCode ) {
             case 65: // a
-                lookX-=2.0;
+                frog.frogYPos-=10;
                 break;
             case 83: // s
-                lookY+=2.0;
+                frog.frogXPos+=10;
                 break;
             case 87: // w
-                lookY-=2.0;
+                frog.frogXPos-=10;
                 break;
             case 68: // d
-                lookX+=2.0;
+                frog.frogYPos+=10;
                 break;
 
         }});
@@ -69,8 +69,8 @@ function render()
 
     var mv = mat4();
 
-    //mv = lookAt( vec3(350+lookY, 0.0+lookX, 1), vec3(-50+lookY, lookX, -5), vec3(0.0, 0.0, 1.0) );
-    mv = lookAt( vec3(350+lookY, 0.0+lookX, 1), vec3(frog.frogXPos, frog.frogYPos,1 ), vec3(0.0, 0.0, 1.0) );
+    //mv = lookAt( vec3(0+lookY, 0.0+lookX, 5), vec3(-50+lookY, lookX, -5), vec3(0.0, 0.0, 1.0) );
+    mv = lookAt( vec3(10+frog.frogYPos, frog.frogXPos, 100 ), vec3(1+frog.frogXPos,1+frog.frogYPos,1 ), vec3(0.0, 0.0, 1.0) );
 
     drawGround( mv,100);
     drawStreet(mv,30);
