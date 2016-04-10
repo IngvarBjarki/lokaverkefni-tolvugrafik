@@ -21,12 +21,14 @@ window.onload = function init()
     gl.bindBuffer( gl.ARRAY_BUFFER, groundBuffer );
     gl.bufferData( gl.ARRAY_BUFFER, flatten(groundVertices), gl.STATIC_DRAW );
 
-    //Buffer fyrir froskinn
-  /*  frogBuffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, frogBuffer);
-    gl.bufferData(gl.ARRAY_BUFFER, flatten(cubeVertice));
+    frog = new frog();
 
-*/
+    //Buffer fyrir froskinn
+    cubeBuffer = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, cubeBuffer);
+    gl.bufferData(gl.ARRAY_BUFFER, flatten(cubeVertices), gl.STATIC_DRAW);
+
+
     vPosition = gl.getAttribLocation( program, "vPosition" );
     gl.vertexAttribPointer( vPosition, 3, gl.FLOAT, false, 0, 0 );
     gl.enableVertexAttribArray( vPosition );
