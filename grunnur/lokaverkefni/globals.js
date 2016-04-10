@@ -23,7 +23,7 @@ var vPosition;
 var cubeBuffer;
 
 var lookHeight=0.0;
-var lookX=0.0;
+var lookX=10.0;
 var lookY=0.0;
 
 var mvLoc;
