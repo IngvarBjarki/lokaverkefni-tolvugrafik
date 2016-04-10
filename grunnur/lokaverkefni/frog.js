@@ -1,7 +1,7 @@
 function frog(){
 
-    this.frogXPos = 0.0;
-    this.frogYPos = 0.0;
+    this.frogXPos = 92.5;
+    this.frogYPos = 32.5;
     this.frogSize = 5.0;
     this.frogAngle = 90;
     this.frogDirectionX = Math.cos(radians(this.frogAngle)); // til þess hann fari ekki i x at þegar hann a ad fara i y att
