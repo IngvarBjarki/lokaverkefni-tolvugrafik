@@ -56,4 +56,4 @@ var cubeVertices = [
     vec3( -0.5, -0.5,  0.5 ), vec3( -0.5,  0.5,  0.5 ), vec3( -0.5,  0.5, -0.5 )
 ];
 
-numCubeVertice = 36;
+var numCubeVertices = 36;

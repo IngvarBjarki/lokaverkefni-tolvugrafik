@@ -63,6 +63,7 @@ window.onload = function init()
     render();
 };
 
+
 function render()
 {
     gl.clear( gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
@@ -70,6 +71,7 @@ function render()
     var mv = mat4();
 
     mv = lookAt( vec3(350+lookY, 0.0+lookX, 1), vec3(-50+lookY, lookX, -5), vec3(0.0, 0.0, 1.0) );
+    drawCar();
     drawGround( mv,100);
     drawStreet(mv,30);
     drawRiver(mv,30);
