@@ -23,7 +23,7 @@ var vPosition;
 var cubeBuffer;
 
 var lookHeight=0.0;
-var lookX=0.0;
+var lookX=10.0;
 var lookY=0.0;
 
 var mvLoc;
@@ -59,4 +59,4 @@ var cubeVertices = [
     vec3( -0.5, -0.5,  0.5 ), vec3( -0.5,  0.5,  0.5 ), vec3( -0.5,  0.5, -0.5 )
 ];
 
-numCubeVertice = 36;
+var numCubeVertices = 36;

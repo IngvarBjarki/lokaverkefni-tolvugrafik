@@ -22,6 +22,7 @@ window.onload = function init()
     gl.bufferData( gl.ARRAY_BUFFER, flatten(groundVertices), gl.STATIC_DRAW );
 
     frog = new frog();
+    car = new car();
 
     //Buffer fyrir froskinn
     cubeBuffer = gl.createBuffer();
@@ -95,15 +96,18 @@ window.onload = function init()
     render();
 };
 
+
 function render()
 {
     gl.clear( gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
     var mv = mat4();
 
-    //mv = lookAt( vec3(0+lookY, 0.0+lookX, 5), vec3(-50+lookY, lookX, -5), vec3(0.0, 0.0, 1.0) );
+
+    mv = lookAt( vec3(frog.frogXPos+30,frog.frogYPos, 10 ), vec3(frog.frogXPos,frog.frogYPos,5.0 ), vec3(0.0, 0.0, 1.0) );
     mv = lookAt( vec3(frog.frogXPos+50,frog.frogYPos, 100 ), vec3(frog.frogXPos,frog.frogYPos,5.0 ), vec3(0.0, 0.0, 1.0) );
     frog.render(mv);
+    car.render(mv);
 
     drawStreet(mv,20);
     drawRiver(mv,20);

@@ -34,6 +34,6 @@ frog.prototype.render = function(mv){
     gl.uniform4fv(colorLoc, DarkGREEN);
 
     gl.uniformMatrix4fv(mvLoc, false, flatten(mv));
-    gl.drawArrays(gl.TRIANGLES, 0, numCubeVertice);
+    gl.drawArrays(gl.TRIANGLES, 0, 36);
 
 };
