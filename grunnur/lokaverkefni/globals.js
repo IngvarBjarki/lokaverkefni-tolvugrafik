@@ -20,11 +20,14 @@ var proj;
 
 var groundBuffer;
 var vPosition;
-var frogBuffer;
+var cubeBuffer;
 
 var lookHeight=0.0;
 var lookX=0.0;
 var lookY=0.0;
+
+var mvLoc;
+
 
 var grSize=1;
 // the 6 vertices of the ground
