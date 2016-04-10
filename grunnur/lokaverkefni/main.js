@@ -74,6 +74,8 @@ function render()
     drawStreet(mv,30);
     drawRiver(mv,30);
 
+    frog.render(mv);
+
 
     requestAnimFrame( render );
 }

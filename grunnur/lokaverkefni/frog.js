@@ -28,7 +28,7 @@ frog.prototype.render = function(){
 
     gl.bindBuffer(gl.ARRAY_BUFFER, cubeBuffer);
     gl.vertexAttribPointer(vPosition, 3, gl.FLOAT, false, 0, 0);
-    gl.uniform4fv(colorLoc, sGREEN);
+    gl.uniform4fv(colorLoc, GREEN);
     gl.uniformMatrix4fv(myLoc, false, flatten(mv));
     gl.drawArrays(gl.TRIANGLES, 0, numCubeVertices);
 
