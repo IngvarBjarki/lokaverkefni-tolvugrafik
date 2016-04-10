@@ -1,6 +1,6 @@
 function frog(angle){
 
-    this.frogXPos = 92.5;
+    this.frogXPos = 77;
     this.frogYPos = 32.5;
     this.frogSize = 5.0;
     this.frogAngle = angle || 90;

@@ -44,21 +44,22 @@ window.onload = function init()
 
       window.addEventListener("keydown", function(e){
         switch( e.keyCode ) {
+
             case (65 || 37): // a eða left arrow
-                frog.frogYPos-=5;
+                frog.frogYPos-=frog.frogSize;
                 frog.frogAngle = 180;
                 break;
             case (83 || 40): // s eða back arrow
-                frog.frogXPos+=5;
+                frog.frogXPos+=2*frog.frogSize;
                 frog.frogAngle = 270;
                 break;
             case (87 || 38 ) : // w eða upp arrow
-                frog.frogXPos-=5;
+                frog.frogXPos-=2*frog.frogSize;
                 frog.frogAngle = 90;
                 break;
             case (68 || 39): // d eða right arrow
-                frog.frogYPos+=5;
-                frog.frogAngle = 0
+                frog.frogYPos+=frog.frogSize;
+                frog.frogAngle = 0;
                 break;
 
         }});
