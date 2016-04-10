@@ -100,7 +100,7 @@ window.onload = function init()
     gl.uniformMatrix4fv(pLoc, false, flatten(proj));
 
     render();
-}
+};
 
 
 // draw a house in location (x, y) of size size
