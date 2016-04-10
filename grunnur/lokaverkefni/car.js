@@ -32,6 +32,7 @@ car.prototype.render = function(mv){
 
       var mv1 = mv;
     // lower body of the car
+    mv = mult(mv, rotateZ(this.carAngle));
     mv = mult(mv, scalem(10+this.carSize,3+this.carSize,2+this.carSize));
     mv = mult(mv, translate(this.carXPos, this.carYPos, 0.5+this.carWidth));
 
@@ -40,6 +41,7 @@ car.prototype.render = function(mv){
 
     // upper part of the car
 
+    mv1 = mult(mv1, rotateZ(this.carAngle));
     mv1= mult(mv1, scalem(4+this.carSize, 3+this.carSize, 2+this.carSize));
     mv1 = mult(mv1, translate(-0.2+this.carXPos, 0+this.carYPos, 1.5+this.carWidth));
 
