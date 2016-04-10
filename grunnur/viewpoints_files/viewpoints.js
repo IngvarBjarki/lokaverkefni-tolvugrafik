@@ -83,7 +83,7 @@ window.onload = function init()
     //Buffer fyrir froskinn
     frogBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, frogBuffer);
-    gl.bufferData(gl.ARRAY_BUFFER, flatten(frog))
+    gl.bufferData(gl.ARRAY_BUFFER, flatten(squareVertices));
 
 
     vPosition = gl.getAttribLocation( program, "vPosition" );
