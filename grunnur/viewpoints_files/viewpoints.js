@@ -34,7 +34,7 @@ var groundVertices = [
 ];
 
 // fyrir kassan a.k.a froskinn
-var squareVertices = [
+var numCubeVertice = [
     // front side:
     vec3( -0.5,  0.5,  0.5 ), vec3( -0.5, -0.5,  0.5 ), vec3(  0.5, -0.5,  0.5 ),
     vec3(  0.5, -0.5,  0.5 ), vec3(  0.5,  0.5,  0.5 ), vec3( -0.5,  0.5,  0.5 ),
@@ -55,7 +55,7 @@ var squareVertices = [
     vec3( -0.5, -0.5,  0.5 ), vec3( -0.5,  0.5,  0.5 ), vec3( -0.5,  0.5, -0.5 )
 ];
 
-squareVertices = 36;
+numCubeVertice = 36;
 
 window.onload = function init()
 {
@@ -83,7 +83,7 @@ window.onload = function init()
     //Buffer fyrir froskinn
     frogBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, frogBuffer);
-    gl.bufferData(gl.ARRAY_BUFFER, flatten(squareVertices));
+    gl.bufferData(gl.ARRAY_BUFFER, flatten(numCubeVertice));
 
 
     vPosition = gl.getAttribLocation( program, "vPosition" );
