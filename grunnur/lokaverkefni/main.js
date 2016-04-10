@@ -45,16 +45,16 @@ window.onload = function init()
       window.addEventListener("keydown", function(e){
         switch( e.keyCode ) {
             case 65: // a
-                frog.frogYPos-=5;
+                frog.frogYPos-=frog.frogSize;
                 break;
             case 83: // s
-                frog.frogXPos+=5;
+                frog.frogXPos+=2*frog.frogSize;
                 break;
             case 87: // w
-                frog.frogXPos-=5;
+                frog.frogXPos-=2*frog.frogSize;
                 break;
             case 68: // d
-                frog.frogYPos+=5;
+                frog.frogYPos+=frog.frogSize;
                 break;
 
         }});
