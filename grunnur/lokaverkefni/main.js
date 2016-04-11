@@ -51,17 +51,17 @@ window.onload = function init()
         color = vec4(Math.random(), Math.random(), Math.random(), 1);
         whatColor = Math.round((Math.random()*(colors.length-1)));
         if(i > 15){
-            cars.push(new car(colors[whatColor], 20*i - 100, 55, 1));
+            cars.push(new car(colors[2], 20*i - 100, 55, 1));
         }
         else if(i > 4 && i<8){
-            cars.push(new car(colors[whatColor], 20*i - 100, 30, -3));
+            cars.push(new car(colors[3], 20*i - 100, 30, -3));
             //cars.push(new car(colors[whatColor], 20*i - 100, 0, 2));
         }
-        else if(i > 4 && i<8){
-            cars.push(new car(colors[whatColor], 20*i - 100, 0, 2));
+        else if(i > 10 && i<15){
+            cars.push(new car(colors[4], 20*i - 100, 0, 2));
         }
         else{
-            cars.push(new car(colors[whatColor], 20*i - 100, 45, -0.5));
+            cars.push(new car(colors[1], 20*i - 100, 45, -0.5));
         }
 }
 //-----------------------------------------------------------------------------------------------------------------------
