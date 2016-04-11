@@ -20,6 +20,7 @@ else if(this.logYPos < -150){
 else{
     this.logYPos += this.logSpeed;
 }
+    frog.logCollisionCheck(this);
 
 };
 
