@@ -83,24 +83,28 @@ window.onload = function init()
                 if (frog.frogYPos>-40){
                     frog.frogYPos-=frog.frogSize;
                     frog.frogAngle = 180;
+                    console.log(frog.frogXPos,frog.frogYPos);
                 }
                 break;
             case (83 || 40): // s eða back arrow
                 if (frog.frogXPos<90){
                     frog.frogXPos+=2*frog.frogSize;
                     frog.frogAngle = 270;
+                    console.log(frog.frogXPos,frog.frogYPos);
                 }
                 break;
             case (87 || 38 ) : // w eða upp arrow
                 if (frog.frogXPos>-70){
                     frog.frogXPos-=2*frog.frogSize;
                     frog.frogAngle = 90;
+                    console.log(frog.frogXPos,frog.frogYPos);
                 }
                 break;
             case (68 || 39): // d eða right arrow
                 if (frog.frogYPos<120){
                     frog.frogYPos+=frog.frogSize;
                     frog.frogAngle = 0;
+                    console.log(frog.frogXPos,frog.frogYPos);
                 }
                 break;
 

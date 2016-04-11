@@ -14,26 +14,29 @@ function car(color, yPos, xPos, speed){
     //mv = mult(mv, scalem(8+this.carSize,15+this.carSize,5+this.carSize));
 
 }
+
 //car.prototype.carUpperX = this.carXPos  - 0.2;
 car.prototype.update = function(){
 
 
   //mv1 = mult(mv1, translate(-0.2+this.carXPos, -1+this.carYPos, 7+this.carWidth));
 
-if(this.carSpeed < 0){
-    this.ShiftY= 1;
-}
+    if(this.carSpeed < 0){
+        this.ShiftY= 1;
+    }
 
-// ef bilinn er komin x langt utfyrir
-if(this.carYPos > 150){
-    this.carYPos = -100 + Math.random()*10;
-}
-else if(this.carYPos < -150){
-    this.carYPos = 130 + Math.random()*10;
-}
-else{
-    this.carYPos += this.carSpeed;
-}
+    // ef bilinn er komin x langt utfyrir
+    if(this.carYPos > 150){
+        this.carYPos = -100 + Math.random()*10;
+    }
+    else if(this.carYPos < -150){
+        this.carYPos = 130 + Math.random()*10;
+    }
+    else{
+        this.carYPos += this.carSpeed;
+    }
+    frog.collisionCheck(this);
+
 
 };
 
@@ -63,4 +66,3 @@ car.prototype.render = function(mv){
     gl.drawArrays(gl.TRIANGLES, 0, 36);
 
 };
-
