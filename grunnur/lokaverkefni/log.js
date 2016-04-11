@@ -5,7 +5,7 @@ function log(xPos, yPos, Speed, length){
     this.logSpeed = Speed;
     this.logColor = BROWN;
     this.logLength = length;
-    this.logWidth = 5;
+    this.logWidth = 8;
     this.logHeight = 1;
 }
 

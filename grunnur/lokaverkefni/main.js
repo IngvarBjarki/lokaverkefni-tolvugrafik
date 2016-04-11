@@ -51,17 +51,17 @@ window.onload = function init()
         color = vec4(Math.random(), Math.random(), Math.random(), 1);
         whatColor = Math.round((Math.random()*(colors.length-1)));
         if(i > 15){
-            cars.push(new car(colors[2], 20*i - 100, 55, 1));
+            cars.push(new car(colors[2], 20*i - 100, 57, 1));
         }
         else if(i > 4 && i<8){
-            cars.push(new car(colors[3], 20*i - 100, 30, -3));
+            cars.push(new car(colors[3], 20*i - 100, 37, -3));
             //cars.push(new car(colors[whatColor], 20*i - 100, 0, 2));
         }
         else if(i > 10 && i<15){
-            cars.push(new car(colors[4], 20*i - 100, 0, 2));
+            cars.push(new car(colors[4], 20*i - 100, 47, 2));
         }
         else{
-            cars.push(new car(colors[1], 20*i - 100, 45, -0.5));
+            cars.push(new car(colors[1], 20*i - 100, 27, -0.5));
         }
 }
 //-----------------------------------------------------------------------------------------------------------------------
@@ -71,16 +71,16 @@ window.onload = function init()
 var numLogs = 30;
 for(i = 0; i<numLogs; i++){
     if(i<5){
-        logs.push(new log(-40, 20*i, 0.7, 10));
+        logs.push(new log(-52, 20*i, 0.7, 10));
     }
     else if(i>5 && i<10){
-        logs.push(new log(-45, 20*i, -1, 15));
+        logs.push(new log(-42, 20*i, -1, 15));
     }
      else if(i>10 && i<15){
-        logs.push(new log(-50, 20*i, 1.5, 8));
+        logs.push(new log(-32, 20*i, 1.5, 8));
     }
      else{
-        logs.push(new log(-45, 20*i, -2, 20));
+        logs.push(new log(-22, 20*i, -2, 20));
     }
 }
 //-------------------------------------------------------------------------------------------------------------------------
