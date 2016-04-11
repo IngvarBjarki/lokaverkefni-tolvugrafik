@@ -47,9 +47,8 @@ frog.prototype.collisionCheck = function(c){
     cx2=c.carXPos+c.carWidth/2
     cy1=c.carYPos-c.carLength/2
     cy2=c.carYPos+c.carLength/2
-    if (fx1<=cx2 && fy1<=cy2 && fx1>=cx1 && fy2>=cy1){
+    if ( fx1<=cx2 && fy1<=cy2 && fx1>=cx1 && fy1>=cy1 || fx2<=cx2 && fy2<=cy2 && fx2>=cx1 && fy2>=cy1 || fx1<=cx2 && fy2<=cy2 && fx1>=cx1 && fy2>=cy1 || fx2<=cx2 && fy1<=cy2 && fx2>=cx1 && fy1>=cy1){
         this.frogXPos=70;
         this.frogYPos=0;
-        alert("You lost");
     }
 };
