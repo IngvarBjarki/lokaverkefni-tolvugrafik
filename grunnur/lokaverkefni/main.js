@@ -38,16 +38,7 @@ window.onload = function init()
     //----------------------------------------------------------------------------------------------
     var numCars = 18; // maeti breyta yfir i global seinna
     colors = [BLUE, RED, CYAN, YELLOW, MAGNETA, BLACK];
-/*
-    for (var i = 1; i<6; i++){
-        var k = 30*i+Math.random()*15
-        color = vec4(Math.random(), Math.random(), Math.random(), 1);
-        whatColor = Math.round((Math.random()*(colors.length-1)));
-        cars.push(new car(colors[2], k, 55, 1));
-        console.log(k);
-    }
 
-*/
     for (var i = 0; i<numCars; i++){
         color = vec4(Math.random(), Math.random(), Math.random(), 1);
         whatColor = Math.round((Math.random()*(colors.length-1)));
