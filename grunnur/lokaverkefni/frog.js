@@ -46,6 +46,4 @@ frog.prototype.collisionCheck = function(xPos,yPos){
     if (fx1<xPos && fy1<yPos || fx2>xPos && fy2>yPos){
 
     }
-
-
-}
+};

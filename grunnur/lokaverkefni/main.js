@@ -33,19 +33,30 @@ window.onload = function init()
     vec4( 1.0, 0.0, 1.0, 1.0 ),  // magenta
     vec4( 0.0, 1.0, 1.0, 1.0 ),  // cyan
     ];
-
-    //utbum fjoldabila
-    var numCars = 10; // maeti breyta yfir i global seinna
+    //-------------------------------------------------------------------------------------------------
+    //utbum bilana, svo lika i render og objectinu cars
+    //----------------------------------------------------------------------------------------------
+    var numCars = 20; // maeti breyta yfir i global seinna
     colors = [BLUE, RED, CYAN, YELLOW, MAGNETA, BLACK];
 
     for (var i = 0; i<numCars; i++){
         color = vec4(Math.random(), Math.random(), Math.random(), 1);
         whatColor = Math.round((Math.random()*(colors.length-1)));
-        if(i > 4){
+        if(i > 15){
+            cars.push(new car(colors[whatColor], 20*i - 100, 40, 1));
+        }
+        else if(i > 4 && i<8){
+            cars.push(new car(colors[whatColor], 20*i - 100, -20, -3));
+        }
+        else if(i > 4 && i<8){
             cars.push(new car(colors[whatColor], 20*i - 100, 0, 2));
         }
-        cars.push(new car(colors[whatColor], 20*i - 100, 20, 0.5));
+        else{
+            cars.push(new car(colors[whatColor], 20*i - 100, 20, -0.5));
+        }
 }
+//-----------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------
     //Buffer fyrir froskinn
     cubeBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, cubeBuffer);
@@ -72,28 +83,24 @@ window.onload = function init()
                 if (frog.frogYPos>-40){
                     frog.frogYPos-=frog.frogSize;
                     frog.frogAngle = 180;
-                    console.log(frog.frogYPos);
                 }
                 break;
             case (83 || 40): // s eða back arrow
                 if (frog.frogXPos<90){
                     frog.frogXPos+=2*frog.frogSize;
                     frog.frogAngle = 270;
-                    console.log(frog.frogXPos);
-                }    
+                }
                 break;
             case (87 || 38 ) : // w eða upp arrow
                 if (frog.frogXPos>-70){
                     frog.frogXPos-=2*frog.frogSize;
                     frog.frogAngle = 90;
-                    console.log(frog.frogXPos);
                 }
                 break;
             case (68 || 39): // d eða right arrow
                 if (frog.frogYPos<120){
                     frog.frogYPos+=frog.frogSize;
                     frog.frogAngle = 0;
-                    console.log(frog.frogYPos);
                 }
                 break;
 
@@ -113,13 +120,17 @@ function render()
     //mv = lookAt( vec3(frog.frogXPos+30,frog.frogYPos, 10 ), vec3(frog.frogXPos,frog.frogYPos,5.0 ), vec3(0.0, 0.0, 1.0) );
     mv = lookAt( vec3(frog.frogXPos+60,frog.frogYPos, 40 ), vec3(frog.frogXPos-60,frog.frogYPos,5.0 ), vec3(0.0, 0.0, 1.0) );
     frog.render(mv);
+
+//-------------------------------------------------------------------------------------------------------------------------
+// renduerum bilana þannig .þeir birtist stoðugt upp a nytt og eru stoðugt a hreyfingu
+//--------------------------------------------------------------------------------------------------------------------------
     for(var j = 0; j<cars.length; j++){
         cars[j].render(mv);
         cars[j].update();
     }
-
-    //car.render(mv);
-
+//-----------------------------------------------------------------------------------------------------------------------------------
+// teiknum grunninn
+//-----------------------------------------------------------------------------------------------------------------------------------
     drawStreet(mv,20,500);
     drawRiver(mv,20,500);
     drawGround( mv,500);
