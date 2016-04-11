@@ -9,6 +9,7 @@ var CYAN = vec4(0.0, 1.0, 1.0, 1.0);
 var MAGNETA = vec4(1.0, 0.0, 1.0, 1.0);
 var BLACK = vec4(0, 0, 0, 1.0);
 var DarkGREEN = vec4(0.1, 0.5, 0.1, 1.0);
+var BROWN = vec4(0.545, 0.27, 0.075, 1.0);
 var numGroundVertices  = 6;
 
 
@@ -32,6 +33,7 @@ var lookY=0.0;
 var mvLoc;
 
 var cars = [];
+var logs = [];
 
 
 var grSize=1;
