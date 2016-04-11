@@ -27,18 +27,31 @@ car.prototype.update = function(){
 
     // ef bilinn er komin x langt utfyrir
     if(this.carYPos > 150){
-        this.carYPos = -100 + Math.random()*10;
+        this.carYPos =  this.carYPos-280;
     }
     else if(this.carYPos < -150){
-        this.carYPos = 130 + Math.random()*10;
+        this.carYPos = this.carYPos +280;
     }
     else{
         this.carYPos += this.carSpeed;
     }
     frog.carCollisionCheck(this);
+    //car.cartocarCollisionCheck(this);
 
 
 };
+
+
+car.prototype.cartocarCollisionCheck = function(c){
+    cy1=c.carYPos-c.carLength/2
+    cy2=c.carYPos+c.carLength/2
+    for(var i=0; i<18;i++){
+        console.log(cars[i],carYPos);
+    }
+
+};
+
+
 
 car.prototype.render = function(mv){
     // Setjum lit a bilinn og setjum i cubebuffer

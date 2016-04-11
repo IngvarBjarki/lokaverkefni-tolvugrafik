@@ -36,32 +36,33 @@ window.onload = function init()
     //-------------------------------------------------------------------------------------------------
     //utbum bilana, svo lika i render og objectinu cars
     //----------------------------------------------------------------------------------------------
-    var numCars = 20; // maeti breyta yfir i global seinna
+    var numCars = 18; // maeti breyta yfir i global seinna
     colors = [BLUE, RED, CYAN, YELLOW, MAGNETA, BLACK];
 /*
-    for (var i = 0; i<numCars/4; i++){
+    for (var i = 1; i<6; i++){
+        var k = 30*i+Math.random()*15
         color = vec4(Math.random(), Math.random(), Math.random(), 1);
         whatColor = Math.round((Math.random()*(colors.length-1)));
-        cars.push(new car(colors[whatColor], 20*i - 90, 40, 1));
-
+        cars.push(new car(colors[2], k, 55, 1));
+        console.log(k);
     }
-*/
 
+*/
     for (var i = 0; i<numCars; i++){
         color = vec4(Math.random(), Math.random(), Math.random(), 1);
         whatColor = Math.round((Math.random()*(colors.length-1)));
-        if(i > 15){
-            cars.push(new car(colors[2], 20*i - 100, 55, 1));
+        if(i< 4){
+            cars.push(new car(colors[2], 30*i+Math.random()*14, 55, 1));
         }
-        else if(i > 4 && i<8){
-            cars.push(new car(colors[3], 20*i - 100, 30, -3));
+        else if(i >= 4 && i<8){
+            cars.push(new car(colors[3], 30*(i-3)+Math.random()*14 - 100, 30, -3));
             //cars.push(new car(colors[whatColor], 20*i - 100, 0, 2));
         }
-        else if(i > 10 && i<15){
-            cars.push(new car(colors[4], 20*i - 100, 0, 2));
+        else if(i >= 8 && i<12){
+            cars.push(new car(colors[4], 30*(i-7)*Math.random*14 - 100, 0, 2));
         }
         else{
-            cars.push(new car(colors[1], 20*i - 100, 45, -0.5));
+            cars.push(new car(colors[1], 30*(i-12)+Math.random()*14 - 100, 45, -0.5));
         }
 }
 //-----------------------------------------------------------------------------------------------------------------------
