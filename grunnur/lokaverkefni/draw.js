@@ -39,3 +39,17 @@ function drawRiver( mv ,width,size) {
     gl.uniformMatrix4fv(mvLoc, false, flatten(mv));
     gl.drawArrays( gl.TRIANGLES, 0, numGroundVertices );    
 }
+
+function drawEndOfWorld( mv ,width,size,i) {
+
+    gl.uniform4fv( colorLoc, RED );
+    
+    mv = mult( mv, translate(i*10, i*107, 0 ) );
+    mv = mult( mv, scalem( width, size, -0.1) );
+
+    gl.bindBuffer( gl.ARRAY_BUFFER, cubeBuffer );
+    gl.vertexAttribPointer( vPosition, 3, gl.FLOAT, false, 0, 0 );
+
+    gl.uniformMatrix4fv(mvLoc, false, flatten(mv));
+    gl.drawArrays( gl.TRIANGLES, 0, numCubeVertices );    
+}

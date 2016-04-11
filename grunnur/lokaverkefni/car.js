@@ -35,7 +35,7 @@ car.prototype.update = function(){
     else{
         this.carYPos += this.carSpeed;
     }
-    frog.collisionCheck(this);
+    frog.carCollisionCheck(this);
 
 
 };
