@@ -167,6 +167,8 @@ function render()
     drawStreet(mv,20,500);
     drawRiver(mv,20,500);
     drawGround(mv,500);
+    drawEndOfWorld(mv,1000,5,1);
+    drawEndOfWorld(mv,1000,5,-1);
 
     //-------------------------------------------------------------------------------------------------------------------------------------
     // teiknum the logs
