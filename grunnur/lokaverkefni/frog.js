@@ -37,13 +37,21 @@ frog.prototype.render = function(mv){
 
 };
 
-frog.prototype.collisionCheck = function(xPos,yPos){
-    fx1=this.frogXPos-this.length/2;
-    fx2=this.frogXPos+this.length/2;
-    fy1=this.frogYPos-this.width/2;
-    fy2=this.frogYPos+this.width/2;
+frog.prototype.collisionCheck = function(c){
+    fx1=this.frogXPos-this.frogLength/2;
+    fx2=this.frogXPos+this.frogLength/2;
+    fy1=this.frogYPos-this.frogWidth/2;
+    fy2=this.frogYPos+this.frogWidth/2;
 
-    if (fx1<xPos && fy1<yPos || fx2>xPos && fy2>yPos){
-
+    cx1=c.carXPos-c.carWidth/2
+    cx2=c.carXPos+c.carWidth/2
+    cy1=c.carYPos-c.carLength/2
+    cy2=c.carYPos+c.carLength/2
+    if ( fx1<=cx2 && fy1<=cy2 && fx1>=cx1 && fy1>=cy1 || 
+        fx2<=cx2 && fy2<=cy2 && fx2>=cx1 && fy2>=cy1 ||
+         fx1<=cx2 && fy2<=cy2 && fx1>=cx1 && fy2>=cy1 || +
+         fx2<=cx2 && fy1<=cy2 && fx2>=cx1 && fy1>=cy1){
+        this.frogXPos=70;
+        this.frogYPos=0;
     }
 };

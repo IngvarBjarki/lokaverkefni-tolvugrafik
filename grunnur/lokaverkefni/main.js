@@ -38,21 +38,30 @@ window.onload = function init()
     //----------------------------------------------------------------------------------------------
     var numCars = 20; // maeti breyta yfir i global seinna
     colors = [BLUE, RED, CYAN, YELLOW, MAGNETA, BLACK];
+/*
+    for (var i = 0; i<numCars/4; i++){
+        color = vec4(Math.random(), Math.random(), Math.random(), 1);
+        whatColor = Math.round((Math.random()*(colors.length-1)));
+        cars.push(new car(colors[whatColor], 20*i - 90, 40, 1));
+
+    }
+*/
 
     for (var i = 0; i<numCars; i++){
         color = vec4(Math.random(), Math.random(), Math.random(), 1);
         whatColor = Math.round((Math.random()*(colors.length-1)));
         if(i > 15){
-            cars.push(new car(colors[whatColor], 20*i - 100, 40, 1));
+            cars.push(new car(colors[whatColor], 20*i - 100, 55, 1));
         }
         else if(i > 4 && i<8){
-            cars.push(new car(colors[whatColor], 20*i - 100, -20, -3));
+            cars.push(new car(colors[whatColor], 20*i - 100, 30, -3));
+            //cars.push(new car(colors[whatColor], 20*i - 100, 0, 2));
         }
         else if(i > 4 && i<8){
             cars.push(new car(colors[whatColor], 20*i - 100, 0, 2));
         }
         else{
-            cars.push(new car(colors[whatColor], 20*i - 100, 20, -0.5));
+            cars.push(new car(colors[whatColor], 20*i - 100, 45, -0.5));
         }
 }
 //-----------------------------------------------------------------------------------------------------------------------
@@ -103,24 +112,28 @@ for(i = 0; i<numLogs; i++){
                 if (frog.frogYPos>-40){
                     frog.frogYPos-=frog.frogSize;
                     frog.frogAngle = 180;
+                    console.log(frog.frogXPos,frog.frogYPos);
                 }
                 break;
             case (83 || 40): // s eða back arrow
                 if (frog.frogXPos<90){
                     frog.frogXPos+=2*frog.frogSize;
                     frog.frogAngle = 270;
+                    console.log(frog.frogXPos,frog.frogYPos);
                 }
                 break;
             case (87 || 38 ) : // w eða upp arrow
                 if (frog.frogXPos>-70){
                     frog.frogXPos-=2*frog.frogSize;
                     frog.frogAngle = 90;
+                    console.log(frog.frogXPos,frog.frogYPos);
                 }
                 break;
             case (68 || 39): // d eða right arrow
                 if (frog.frogYPos<120){
                     frog.frogYPos+=frog.frogSize;
                     frog.frogAngle = 0;
+                    console.log(frog.frogXPos,frog.frogYPos);
                 }
                 break;
 
