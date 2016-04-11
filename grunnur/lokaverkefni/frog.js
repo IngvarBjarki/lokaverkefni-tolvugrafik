@@ -9,16 +9,16 @@ function frog(angle){
     this.frogStepSize = 1.5;
     this.frogWidth = this.frogSize;
     this.frogLength = this.frogSize;
+    this.isRiding=false;
 
 }
 
 
 frog.prototype.update = function(angle){
-
-this.frogAngle = angle;
-this.frogXPos += 2*this.frogDirectionX;
-this.frogYPos += 2*this.frogDirectionY;
-
+    frog.isDrowning();
+    /*this.frogAngle = angle;
+    this.frogXPos += 2*this.frogDirectionX;
+    this.frogYPos += 2*this.frogDirectionY;*/
 };
 
 frog.prototype.render = function(mv){
@@ -51,28 +51,33 @@ frog.prototype.carCollisionCheck = function(c){
         fx2<=cx2 && fy2<=cy2 && fx2>=cx1 && fy2>=cy1 ||
          fx1<=cx2 && fy2<=cy2 && fx1>=cx1 && fy2>=cy1 ||
          fx2<=cx2 && fy1<=cy2 && fx2>=cx1 && fy1>=cy1){
-        this.frogXPos=70;
-        this.frogYPos=0;
+        resetGame();
     }
 };
 frog.prototype.logCollisionCheck = function(l){
-    fx1=this.frogXPos-this.frogLength/2;
-    fx2=this.frogXPos+this.frogLength/2;
-    fy1=this.frogYPos-this.frogWidth/2;
-    fy2=this.frogYPos+this.frogWidth/2;
-    lx1=l.logXPos-l.logWidth/2
-    lx2=l.logXPos+l.logWidth/2
-    ly1=l.logYPos-l.logLength/2
-    ly2=l.logYPos+l.logLength/2
-
-    if ( fx1<=lx2 && fy1<=ly2 && fx1>=lx1 && fy1>=ly1 || 
-        fx2<=lx2 && fy2<=ly2 && fx2>=lx1 && fy2>=ly1 ||
-         fx1<=lx2 && fy2<=ly2 && fx1>=lx1 && fy2>=ly1 || 
-         fx2<=lx2 && fy1<=ly2 && fx2>=lx1 && fy1>=ly1){
-        this.frogYPos+=l.logSpeed;
+    fx1=this.frogXPos;
+    fy1=this.frogYPos;
+    lx1=l.logXPos-l.logWidth/2;
+    lx2=l.logXPos+l.logWidth/2;
+    ly1=l.logYPos-l.logLength/2;
+    ly2=l.logYPos+l.logLength/2;
+    if ( fx1<=lx2 && fy1<=ly2 && fx1>=lx1 && fy1>=ly1){
+        frog.isRiding=true;
+        frog.frogYPos+=l.logSpeed;
     }
     if (this.frogYPos<-100 || this.frogYPos>100){
-        this.frogYPos=0;
-        this.frogXPos=70;
+        resetGame();
     }
 };
+
+frog.prototype.isDrowning= function(){
+    if (this.frogXPos<=-20 && this.frogXPos>=-50){
+        if (frog.isRiding){
+            console.log("IM ON A LOG");
+        }
+        else{
+            console.log("not on log");
+            resetGame();
+        }
+    }
+}

@@ -36,24 +36,32 @@ window.onload = function init()
     //-------------------------------------------------------------------------------------------------
     //utbum bilana, svo lika i render og objectinu cars
     //----------------------------------------------------------------------------------------------
-    var numCars = 18; // maeti breyta yfir i global seinna
+    var numCars = 20; // maeti breyta yfir i global seinna
     colors = [BLUE, RED, CYAN, YELLOW, MAGNETA, BLACK];
+/*
+    for (var i = 0; i<numCars/4; i++){
+        color = vec4(Math.random(), Math.random(), Math.random(), 1);
+        whatColor = Math.round((Math.random()*(colors.length-1)));
+        cars.push(new car(colors[whatColor], 20*i - 90, 40, 1));
+
+    }
+*/
 
     for (var i = 0; i<numCars; i++){
         color = vec4(Math.random(), Math.random(), Math.random(), 1);
         whatColor = Math.round((Math.random()*(colors.length-1)));
-        if(i< 4){
-            cars.push(new car(colors[2], 30*i+Math.random()*14, 55, 1));
+        if(i > 15){
+            cars.push(new car(colors[2], 20*i - 100, 57, 1));
         }
-        else if(i >= 4 && i<8){
-            cars.push(new car(colors[3], 30*(i-3)+Math.random()*14 - 100, 30, -3));
+        else if(i > 4 && i<8){
+            cars.push(new car(colors[3], 20*i - 100, 37, -3));
             //cars.push(new car(colors[whatColor], 20*i - 100, 0, 2));
         }
-        else if(i >= 8 && i<12){
-            cars.push(new car(colors[4], 30*(i-7)*Math.random*14 - 100, 0, 2));
+        else if(i > 10 && i<15){
+            cars.push(new car(colors[4], 20*i - 100, 47, 2));
         }
         else{
-            cars.push(new car(colors[1], 30*(i-12)+Math.random()*14 - 100, 45, -0.5));
+            cars.push(new car(colors[1], 20*i - 100, 27, -0.5));
         }
 }
 //-----------------------------------------------------------------------------------------------------------------------
@@ -63,16 +71,16 @@ window.onload = function init()
 var numLogs = 30;
 for(i = 0; i<numLogs; i++){
     if(i<5){
-        logs.push(new log(-40, 20*i, 0.7, 10));
+        logs.push(new log(-52, 20*i, 0.4, 10));
     }
     else if(i>5 && i<10){
-        logs.push(new log(-45, 20*i, -1, 15));
+        logs.push(new log(-42, 20*i, -0.5, 15));
     }
      else if(i>10 && i<15){
-        logs.push(new log(-50, 20*i, 1.5, 8));
+        logs.push(new log(-32, 20*i, 0.8, 12));
     }
      else{
-        logs.push(new log(-45, 20*i, -2, 20));
+        logs.push(new log(-22, 20*i, -1, 20));
     }
 }
 //-------------------------------------------------------------------------------------------------------------------------
@@ -104,28 +112,36 @@ for(i = 0; i<numLogs; i++){
                 if (frog.frogYPos>-100){
                     frog.frogYPos-=frog.frogSize;
                     frog.frogAngle = 180;
-                    console.log(frog.frogXPos,frog.frogYPos);
+                    frog.isRiding=false;
+                    //console.log(frog.frogXPos,frog.frogYPos);
+                    //console.log(frog.isRiding);
                 }
                 break;
             case (83 || 40): // s eða back arrow
                 if (frog.frogXPos<90){
                     frog.frogXPos+=2*frog.frogSize;
                     frog.frogAngle = 270;
-                    console.log(frog.frogXPos,frog.frogYPos);
+                    frog.isRiding=false;
+                    //console.log(frog.frogXPos,frog.frogYPos);
+                    //console.log(frog.isRiding);
                 }
                 break;
             case (87 || 38 ) : // w eða upp arrow
                 if (frog.frogXPos>-70){
                     frog.frogXPos-=2*frog.frogSize;
                     frog.frogAngle = 90;
-                    console.log(frog.frogXPos,frog.frogYPos);
+                    frog.isRiding=false;
+                    //console.log(frog.frogXPos,frog.frogYPos);
+                    //console.log(frog.isRiding);
                 }
                 break;
             case (68 || 39): // d eða right arrow
                 if (frog.frogYPos<100){
                     frog.frogYPos+=frog.frogSize;
                     frog.frogAngle = 0;
-                    console.log(frog.frogXPos,frog.frogYPos);
+                    frog.isRiding=false;
+                    //console.log(frog.frogXPos,frog.frogYPos);
+                    //console.log(frog.isRiding);
                 }
                 break;
 
@@ -144,7 +160,6 @@ function render()
 
     //mv = lookAt( vec3(frog.frogXPos+30,frog.frogYPos, 10 ), vec3(frog.frogXPos,frog.frogYPos,5.0 ), vec3(0.0, 0.0, 1.0) );
     mv = lookAt( vec3(frog.frogXPos+60,frog.frogYPos, 40 ), vec3(frog.frogXPos-60,frog.frogYPos,5.0 ), vec3(0.0, 0.0, 1.0) );
-    frog.render(mv);
 
     //-------------------------------------------------------------------------------------------------------------------------
     // renduerum bilana þannig .þeir birtist stoðugt upp a nytt og eru stoðugt a hreyfingu
@@ -171,6 +186,8 @@ function render()
         logs[j].update();
         //console.log(logs[j]);
     }
+    frog.update();
+    frog.render(mv);
 
     requestAnimFrame( render );
 }
