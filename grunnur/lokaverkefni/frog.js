@@ -51,7 +51,8 @@ frog.prototype.carCollisionCheck = function(c){
         fx2<=cx2 && fy2<=cy2 && fx2>=cx1 && fy2>=cy1 ||
          fx1<=cx2 && fy2<=cy2 && fx1>=cx1 && fy2>=cy1 ||
          fx2<=cx2 && fy1<=cy2 && fx2>=cx1 && fy1>=cy1){
-        resetGame();
+        frog.frogXPos=70;
+        frog.frogYPos=0;
     }
 };
 frog.prototype.logCollisionCheck = function(l){
@@ -66,7 +67,8 @@ frog.prototype.logCollisionCheck = function(l){
         frog.frogYPos+=l.logSpeed;
     }
     if (this.frogYPos<-100 || this.frogYPos>100){
-        resetGame();
+        frog.frogYPos=0;
+        frog.frogXPos=70;
     }
 };
 
@@ -77,7 +79,8 @@ frog.prototype.isDrowning= function(){
         }
         else{
             console.log("not on log");
-            resetGame();
+            frog.frogYPos=0;
+            frog.frogXPos=70;
         }
     }
 }
